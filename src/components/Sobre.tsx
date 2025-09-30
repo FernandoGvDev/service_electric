@@ -29,7 +29,7 @@ export default function Sobre() {
           className="space-y-6"
         >
           <h2 className="text-4xl font-bold text-gray-900">
-            Sobre a <span className="text-yellow-500">Service Electric</span>
+            Sobre a <span className="text-yellow-500">RS Service Electric</span>
           </h2>
           <p className="text-lg text-gray-700 leading-relaxed">
             Somos especialistas em <strong>instalações e manutenções elétricas</strong>, 

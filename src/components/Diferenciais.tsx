@@ -38,7 +38,7 @@ export default function Diferenciais() {
           className="text-4xl font-bold mb-12"
         >
           Por que escolher a{" "}
-          <span className="text-yellow-400">Service Electric?</span>
+          <span className="text-yellow-400">RS Service Electric?</span>
         </motion.h2>
 
         {/* Grid de diferenciais */}

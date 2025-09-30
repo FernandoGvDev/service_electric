@@ -30,7 +30,7 @@ export default function CTA() {
           className="text-3xl md:text-4xl font-bold mb-6"
         >
           Precisa de um eletricista agora? <br />
-          <span className="text-yellow-400">Fale com a Service Electric!</span>
+          <span className="text-yellow-400">Fale com a RS Service Electric!</span>
         </motion.h2>
 
         <motion.a

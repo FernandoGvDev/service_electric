@@ -24,7 +24,7 @@ export default function Header() {
             className="w-12 h-12 object-contain"
           />
           <span className="text-2xl font-bold text-yellow-400 tracking-wide">
-            Service Electric
+            RS Service Electric
           </span>
         </div>
 
