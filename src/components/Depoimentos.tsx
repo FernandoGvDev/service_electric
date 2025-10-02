@@ -9,7 +9,7 @@ const depoimentos = [
       "Excelente serviço! Resolveu meu problema elétrico com rapidez e profissionalismo.",
   },
   {
-    nome: "Cláudia kuligosk",
+    nome: "Cláudia kuligoski",
     foto: "/img/depoimento/claudiaKuligoski.jpeg",
     comentario:"Excelente atendimento, qualidade e agilidade do serviço prestado. Recomendo a empresa RS Service Electric "
   },
@@ -17,7 +17,7 @@ const depoimentos = [
     nome: "Maria Oliveira",
     foto: "https://randomuser.me/api/portraits/women/65.jpg",
     comentario:
-      "Muito confiável e detalhista. Recomendo a Service Electric para qualquer serviço elétrico.",
+      "Muito confiável e detalhista. Recomendo a RS Service Electric para qualquer serviço elétrico.",
   },
   {
     nome: "Carlos Souza",
