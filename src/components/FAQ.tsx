@@ -1,12 +1,12 @@
 // src/components/FAQ.tsx
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const faqs = [
   {
     pergunta: "Atendem em finais de semana?",
-    resposta: "Sim! A Service Electric oferece atendimento emergencial aos finais de semana.",
+    resposta: "Sim! A RS Service Electric oferece atendimento emergencial aos finais de semana.",
   },
   {
     pergunta: "Vocês emitem nota fiscal?",
@@ -28,6 +28,30 @@ export default function FAQ() {
   const toggle = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
+
+  useEffect(() => {
+    // Criar script JSON-LD
+    const script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.text = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": faqs.map((faq) => ({
+        "@type": "Question",
+        name: faq.pergunta,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: faq.resposta,
+        },
+      })),
+    });
+    document.head.appendChild(script);
+
+    // Limpar script quando o componente desmonta
+    return () => {
+      document.head.removeChild(script);
+    };
+  }, []);
 
   return (
     <section id="faq" className="bg-gray-100 py-20">
