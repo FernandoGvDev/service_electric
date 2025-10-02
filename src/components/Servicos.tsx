@@ -1,6 +1,6 @@
 // src/components/Servicos.tsx
 import { motion } from "framer-motion";
-import { Zap, Lightbulb, Plug, Wrench, Shield, Factory } from "lucide-react";
+import { Zap, Lightbulb, Plug, Wrench, Shield, Factory, MessageCircle } from "lucide-react";
 
 const servicos = [
   {
@@ -51,13 +51,13 @@ export default function Servicos() {
         </motion.h2>
 
         {/* Grid de serviços */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           {servicos.map((servico, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.5 }}
+              transition={{ duration: 0.6, delay: index * 0.2 }}
               viewport={{ once: true }}
               className="bg-white rounded-2xl shadow-lg p-6 flex flex-col items-center text-center hover:shadow-2xl hover:scale-105 transition"
             >
@@ -69,6 +69,20 @@ export default function Servicos() {
             </motion.div>
           ))}
         </div>
+
+        {/* CTA WhatsApp */}
+        <motion.a
+          href="https://wa.me/555184162970?text=Olá!%20Gostaria%20de%20mais%20informações%20sobre%20os%20serviços."
+          target="_blank"
+          rel="noopener noreferrer"
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="inline-flex items-center gap-2 bg-green-500 text-white font-semibold px-8 py-4 rounded-full shadow-lg hover:bg-green-600 hover:scale-105 transition"
+        >
+          <MessageCircle size={24} />
+          Fale Conosco no WhatsApp
+        </motion.a>
       </div>
     </section>
   );

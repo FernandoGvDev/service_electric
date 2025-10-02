@@ -8,6 +8,7 @@ import Depoimentos from "../components/Depoimentos";
 import Diferenciais from "../components/Diferenciais";
 import FAQ from "../components/FAQ";
 import Footer from "../components/Footer";
+import Portfolio from "../components/Portfolio";
 
 export default function Home() {
   return (
@@ -15,14 +16,15 @@ export default function Home() {
       <Header />
 
       <main>
-            <Hero />
-            <Servicos />
-            <Sobre />
+            <div id="inicio"><Hero /></div>
+            <div id="services"><Servicos /></div>
+            <div id="sobre"><Sobre /></div>
             <Diferenciais />
             <Depoimentos />
+            <Portfolio />
             <FAQ />
             <CTA />
-            <Footer />
+            <div id="contact"><Footer /></div>
       </main>
 
     </div>

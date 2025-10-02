@@ -7,8 +7,8 @@ export default function Header() {
   const [open, setOpen] = useState(false);
 
   const navLinks = [
-    { name: "Início", href: "#home" },
-    { name: "Sobre", href: "#about" },
+    { name: "Início", href: "#inicio" },
+    { name: "Sobre", href: "#sobre" },
     { name: "Serviços", href: "#services" },
     { name: "Contato", href: "#contact" },
   ];
