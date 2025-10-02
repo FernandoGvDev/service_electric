@@ -9,6 +9,11 @@ const depoimentos = [
       "Excelente serviço! Resolveu meu problema elétrico com rapidez e profissionalismo.",
   },
   {
+    nome: "Cláudia kuligosk",
+    foto: "/img/depoimento/claudiaKuligoski.jpeg",
+    comentario:"Excelente atendimento, qualidade e agilidade do serviço prestado. Recomendo a empresa RS Service Electric "
+  },
+  {
     nome: "Maria Oliveira",
     foto: "https://randomuser.me/api/portraits/women/65.jpg",
     comentario:
