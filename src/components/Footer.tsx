@@ -5,10 +5,10 @@ export default function Footer() {
   return (
     <footer className="bg-gray-900 text-gray-100 pt-12">
       <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8">
-        
+
         {/* Logo + Nome */}
         <div className="flex items-center space-x-4">
-          <img src="/img/logo.png" alt="Logo Service Electric" className="w-16 h-16"/>
+          <img src="/img/logo.png" alt="Logo Service Electric" className="w-16 h-16" />
           <span className="text-2xl font-bold text-yellow-400">RS Service Electric</span>
         </div>
 
@@ -78,6 +78,12 @@ export default function Footer() {
       <div className="mt-6 text-center text-gray-400 text-sm pb-6">
         © {new Date().getFullYear()} RS Service Electric. Todos os direitos reservados.
       </div>
+      <div className="w-full bg-gray-900 text-gray-200 text-center py-2 text-sm hover:bg-blue-950 transition-colors">
+        <a href="https://codificaweb.pages.dev/" target="_blank" rel="noopener noreferrer">
+          Desenvolvido pela CodificaWeb
+        </a>
+      </div>
+
     </footer>
   );
 }

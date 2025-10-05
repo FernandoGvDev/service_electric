@@ -20,6 +20,12 @@ const depoimentos = [
       "Muito confiável e detalhista. Recomendo a RS Service Electric para qualquer serviço elétrico.",
   },
   {
+    nome: "Oficina de oculos",
+    foto: "https://tse1.mm.bing.net/th/id/OIP.vmoycMUOmbcs0Vw-1iIdVAHaHa?cb=12&rs=1&pid=ImgDetMain&o=7&rm=3",
+    comentario:
+      "Excelente empresa! Profissionais qualificados e ótimo atendimento prestado. Super recomento a empresa.",
+  },
+  {
     nome: "Carlos Souza",
     foto: "https://randomuser.me/api/portraits/men/77.jpg",
     comentario:
