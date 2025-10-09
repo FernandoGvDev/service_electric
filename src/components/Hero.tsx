@@ -1,8 +1,40 @@
 // src/components/Hero.tsx
 import { motion } from "framer-motion";
 import { Zap, Lightbulb, Bolt } from "lucide-react";
+import { useCallback } from "react";
+
+declare global {
+  interface Window {
+    gtag?: (...args: any[]) => void;
+  }
+}
+
 
 export default function Hero() {
+
+  // Função de rastreamento de conversão
+  const gtagReportConversion = useCallback((url: string) => {
+    const callback = () => {
+      if (typeof url !== "undefined") {
+        window.location.href = url;
+      }
+    };
+
+    // Se o gtag estiver disponível, envia o evento
+    if (typeof window.gtag !== "undefined") {
+      window.gtag("event", "conversion", {
+        send_to: "AW-17637361779/znIzCJeh-KkbEPOQk9pB", // 🔹 substitua aqui
+        value: 1.0,
+        currency: "BRL",
+        event_callback: callback,
+      });
+    } else {
+      callback(); // fallback caso o gtag não tenha carregado
+    }
+
+    return false;
+  }, []);
+  
   return (
     <section className="relative bg-gray-900 text-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-12 items-center">
@@ -26,12 +58,17 @@ export default function Hero() {
 
           <a
             href="https://wa.me/555184162970"
+            onClick={(e) => {
+              e.preventDefault();
+              gtagReportConversion("https://wa.me/555184162970");
+            }}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block px-6 py-3 text-lg font-semibold rounded-full bg-yellow-400 text-gray-900 shadow-lg hover:bg-yellow-300 hover:scale-105 transform transition duration-300"
           >
             Falar no WhatsApp
           </a>
+
         </motion.div>
 
         {/* Imagem */}
