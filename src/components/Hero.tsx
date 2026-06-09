@@ -50,20 +50,7 @@ export default function Hero() {
         <div className="absolute inset-0 bg-black/75" />
       </div>
 
-      {/* CTA Flutuante Mobile */}
-      <div className="fixed bottom-4 left-4 right-4 z-50 md:hidden">
-        <a
-          href="https://wa.me/555184162970"
-          onClick={(e) => {
-            e.preventDefault();
-            gtagReportConversion("https://wa.me/555184162970");
-          }}
-          className="flex items-center justify-center gap-2 bg-yellow-400 text-gray-900 font-bold py-4 rounded-full shadow-2xl"
-        >
-          <MessageCircle size={22} />
-          Solicitar Orçamento
-        </a>
-      </div>
+      
 
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 pt-32 sm:pt-40 md:pt-52 lg:pt-64 pb-20 md:pb-32 flex flex-col items-center justify-center text-center">
         {/* Badge */}
