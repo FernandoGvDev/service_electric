@@ -1,88 +1,169 @@
 // src/components/Servicos.tsx
+
 import { motion } from "framer-motion";
-import { Zap, Lightbulb, Plug, Wrench, Shield, Factory, MessageCircle } from "lucide-react";
+import {
+  Zap,
+  Lightbulb,
+  Plug,
+  Wrench,
+  Factory,
+  ShieldCheck,
+  MessageCircle,
+  CheckCircle2,
+} from "lucide-react";
 
 const servicos = [
   {
-    icon: <Zap size={36} />,
-    title: "Instalações Elétricas",
-    desc: "Montagem e manutenção de instalações residenciais e comerciais.",
+    icon: <Plug size={34} />,
+    title: "Troca de Tomadas e Interruptores",
+    desc: "Instalação e substituição com total segurança.",
   },
   {
-    icon: <Lightbulb size={36} />,
-    title: "Iluminação",
-    desc: "Projetos e instalação de iluminação interna e externa.",
+    icon: <Zap size={34} />,
+    title: "Troca de Disjuntores",
+    desc: "Correção de quedas de energia e sobrecargas.",
   },
   {
-    icon: <Plug size={36} />,
-    title: "Tomadas e Disjuntores",
-    desc: "Instalação e reparo de tomadas, quadros e disjuntores.",
+    icon: <Lightbulb size={34} />,
+    title: "Instalação de Iluminação",
+    desc: "Luminárias, refletores, LED e iluminação externa.",
   },
   {
-    icon: <Wrench size={36} />,
-    title: "Manutenção Preventiva",
-    desc: "Inspeções regulares para evitar falhas elétricas.",
+    icon: <Wrench size={34} />,
+    title: "Manutenção Elétrica",
+    desc: "Diagnóstico e reparo de falhas elétricas.",
   },
   {
-    icon: <Shield size={36} />,
-    title: "Segurança Elétrica",
-    desc: "Instalação de dispositivos de proteção contra choques e surtos.",
+    icon: <ShieldCheck size={34} />,
+    title: "Quadros Elétricos",
+    desc: "Montagem, organização e adequação às normas.",
   },
   {
-    icon: <Factory size={36} />,
+    icon: <Factory size={34} />,
     title: "Serviços Industriais",
-    desc: "Manutenção elétrica em ambientes industriais.",
+    desc: "Manutenção e instalações em ambientes industriais.",
   },
 ];
 
 export default function Servicos() {
   return (
-    <section id="services" className="bg-gray-100 py-20">
-      <div className="max-w-7xl mx-auto px-6 text-center">
-        {/* Título */}
-        <motion.h2
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-4xl font-bold text-gray-900 mb-12"
-        >
-          Nossos <span className="text-yellow-500">Serviços</span>
-        </motion.h2>
+    <section
+      id="services"
+      className="bg-white py-24 relative overflow-hidden"
+    >
+      <div className="max-w-7xl mx-auto px-6">
+        {/* Cabeçalho */}
+        <div className="text-center max-w-4xl mx-auto mb-16">
+          <motion.span
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="inline-block px-4 py-2 rounded-full bg-yellow-100 text-yellow-700 font-semibold text-sm mb-4"
+          >
+            SOLUÇÕES ELÉTRICAS
+          </motion.span>
 
-        {/* Grid de serviços */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+          <motion.h2
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-4xl md:text-5xl font-extrabold text-gray-900"
+          >
+            Quais Serviços Elétricos Você Precisa?
+          </motion.h2>
+
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="mt-6 text-xl text-gray-600"
+          >
+            Atendimento residencial, comercial e industrial com
+            qualidade, segurança e rapidez.
+          </motion.p>
+        </div>
+
+        {/* Cards */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {servicos.map((servico, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
               viewport={{ once: true }}
-              className="bg-white rounded-2xl shadow-lg p-6 flex flex-col items-center text-center hover:shadow-2xl hover:scale-105 transition"
+              transition={{ delay: index * 0.1 }}
+              className="group bg-gray-50 border border-gray-200 rounded-3xl p-8 hover:border-yellow-400 hover:shadow-2xl transition-all duration-300"
             >
-              <div className="text-yellow-500 mb-4">{servico.icon}</div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">
+              <div className="w-16 h-16 rounded-2xl bg-yellow-400 text-gray-900 flex items-center justify-center mb-6">
+                {servico.icon}
+              </div>
+
+              <h3 className="text-2xl font-bold text-gray-900 mb-3">
                 {servico.title}
               </h3>
-              <p className="text-gray-600">{servico.desc}</p>
+
+              <p className="text-gray-600 leading-relaxed">
+                {servico.desc}
+              </p>
+
+              <div className="flex items-center gap-2 mt-5 text-green-600 font-medium">
+                <CheckCircle2 size={18} />
+                Atendimento especializado
+              </div>
             </motion.div>
           ))}
         </div>
 
-        {/* CTA WhatsApp */}
-        <motion.a
-          href="https://wa.me/555184162970?text=Olá!%20Gostaria%20de%20mais%20informações%20sobre%20os%20serviços."
-          target="_blank"
-          rel="noopener noreferrer"
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="inline-flex items-center gap-2 bg-green-500 text-white font-semibold px-8 py-4 rounded-full shadow-lg hover:bg-green-600 hover:scale-105 transition"
-        >
-          <MessageCircle size={24} />
-          Fale Conosco no WhatsApp
-        </motion.a>
+        {/* Benefícios rápidos */}
+        <div className="mt-20 bg-gray-900 rounded-3xl p-10 text-white">
+          <div className="grid md:grid-cols-4 gap-8 text-center">
+            <div>
+              <h4 className="text-3xl font-bold text-yellow-400">
+                ✓
+              </h4>
+              <p className="mt-2">Atendimento Rápido</p>
+            </div>
+
+            <div>
+              <h4 className="text-3xl font-bold text-yellow-400">
+                ✓
+              </h4>
+              <p className="mt-2">Orçamento Sem Compromisso</p>
+            </div>
+
+            <div>
+              <h4 className="text-3xl font-bold text-yellow-400">
+                ✓
+              </h4>
+              <p className="mt-2">Serviço Garantido</p>
+            </div>
+
+            <div>
+              <h4 className="text-3xl font-bold text-yellow-400">
+                ✓
+              </h4>
+              <p className="mt-2">Segurança e Qualidade</p>
+            </div>
+          </div>
+        </div>
+
+        {/* CTA */}
+        <div className="text-center mt-16">
+          <a
+            href="https://wa.me/555184162970"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-3 bg-green-500 hover:bg-green-600 text-white font-bold text-lg px-10 py-5 rounded-full shadow-2xl transition-all hover:scale-105"
+          >
+            <MessageCircle size={24} />
+            Solicitar Orçamento pelo WhatsApp
+          </a>
+
+          <p className="mt-4 text-gray-500">
+            Resposta rápida • Sem compromisso
+          </p>
+        </div>
       </div>
     </section>
   );

@@ -1,74 +1,134 @@
 // src/components/Depoimentos.tsx
+
 import { motion } from "framer-motion";
+import { Star, Quote, MessageCircle } from "lucide-react";
 
 const depoimentos = [
   {
-    nome: "João Silva",
-    foto: "https://randomuser.me/api/portraits/men/32.jpg",
+    nome: "Cláudia Kuligoski",
     comentario:
-      "Excelente serviço! Resolveu meu problema elétrico com rapidez e profissionalismo.",
+      "Excelente atendimento, qualidade e agilidade do serviço prestado. Recomendo a empresa RS Service Electric.",
   },
   {
-    nome: "Cláudia kuligoski",
-    foto: "/img/depoimento/claudiaKuligoski.jpeg",
-    comentario:"Excelente atendimento, qualidade e agilidade do serviço prestado. Recomendo a empresa RS Service Electric "
+    nome: "Oficina de Óculos",
+    comentario:
+      "Excelente empresa. Profissionais qualificados e ótimo atendimento prestado. Super recomendo.",
   },
   {
-    nome: "Maria Oliveira",
-    foto: "https://randomuser.me/api/portraits/women/65.jpg",
+    nome: "Cliente Residencial",
     comentario:
-      "Muito confiável e detalhista. Recomendo a RS Service Electric para qualquer serviço elétrico.",
+      "Atendimento rápido, serviço organizado e tudo funcionando perfeitamente. Ficamos muito satisfeitos.",
   },
   {
-    nome: "Oficina de oculos",
-    foto: "https://tse1.mm.bing.net/th/id/OIP.vmoycMUOmbcs0Vw-1iIdVAHaHa?cb=12&rs=1&pid=ImgDetMain&o=7&rm=3",
+    nome: "Cliente Comercial",
     comentario:
-      "Excelente empresa! Profissionais qualificados e ótimo atendimento prestado. Super recomento a empresa.",
+      "Pontualidade, profissionalismo e transparência do início ao fim do serviço.",
   },
   {
-    nome: "Carlos Souza",
-    foto: "https://randomuser.me/api/portraits/men/77.jpg",
+    nome: "Cliente Industrial",
     comentario:
-      "Equipe muito profissional, atendimento impecável e preços justos.",
+      "Equipe extremamente competente. Resolveram o problema com rapidez e segurança.",
   },
 ];
 
 export default function Depoimentos() {
   return (
-    <section className="bg-gray-100 py-20">
-      <div className="max-w-7xl mx-auto px-6 text-center">
-        <motion.h2
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-4xl font-bold mb-12 text-gray-900"
-        >
-          Depoimentos de <span className="text-yellow-500">Clientes</span>
-        </motion.h2>
+    <section className="bg-gray-950 py-24 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6">
 
-        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Cabeçalho */}
+        <div className="text-center max-w-3xl mx-auto mb-16">
+
+          <div className="flex justify-center gap-1 mb-6">
+            {[...Array(5)].map((_, index) => (
+              <Star
+                key={index}
+                size={28}
+                className="fill-yellow-400 text-yellow-400"
+              />
+            ))}
+          </div>
+
+          <h2 className="text-4xl md:text-5xl font-extrabold text-white">
+            O Que Nossos Clientes Dizem
+          </h2>
+
+          <p className="text-gray-400 text-lg mt-6">
+            A confiança é construída através de resultados.
+            Veja o que nossos clientes relatam sobre nossos serviços.
+          </p>
+        </div>
+
+        {/* Cards */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
           {depoimentos.map((dep, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 25 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
               viewport={{ once: true }}
-              className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl hover:scale-105 transition"
+              transition={{ delay: index * 0.1 }}
+              className="bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-sm"
             >
-              <img
-                src={dep.foto}
-                alt={dep.nome}
-                className="w-16 h-16 rounded-full mx-auto mb-4"
+              <Quote
+                size={36}
+                className="text-yellow-400 mb-5"
               />
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                {dep.nome}
-              </h3>
-              <p className="text-gray-600 italic">"{dep.comentario}"</p>
+
+              <p className="text-gray-300 leading-relaxed text-lg">
+                "{dep.comentario}"
+              </p>
+
+              <div className="mt-6 pt-6 border-t border-white/10">
+
+                <div className="flex gap-1 mb-3">
+                  {[...Array(5)].map((_, i) => (
+                    <Star
+                      key={i}
+                      size={16}
+                      className="fill-yellow-400 text-yellow-400"
+                    />
+                  ))}
+                </div>
+
+                <h3 className="font-bold text-white">
+                  {dep.nome}
+                </h3>
+
+                <p className="text-gray-500 text-sm">
+                  Cliente Verificado
+                </p>
+
+              </div>
             </motion.div>
           ))}
         </div>
+
+        {/* Bloco de confiança */}
+        <div className="mt-20 bg-gradient-to-r from-yellow-400 to-yellow-500 rounded-3xl p-10 text-center">
+
+          <h3 className="text-3xl font-bold text-gray-900">
+            Precisa de um Eletricista de Confiança?
+          </h3>
+
+          <p className="text-gray-800 mt-4 max-w-2xl mx-auto">
+            Solicite um orçamento sem compromisso e receba
+            atendimento rápido e profissional.
+          </p>
+
+          <a
+            href="https://wa.me/555184162970"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-3 mt-8 bg-gray-900 text-white px-10 py-5 rounded-full font-bold hover:scale-105 transition"
+          >
+            <MessageCircle size={22} />
+            Solicitar Orçamento pelo WhatsApp
+          </a>
+
+        </div>
+
       </div>
     </section>
   );

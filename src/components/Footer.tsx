@@ -1,89 +1,112 @@
 // src/components/Footer.tsx
-import { Instagram, Facebook, Zap } from "lucide-react";
+
+import {
+  Instagram,
+  Facebook,
+  ArrowUp,
+} from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-gray-100 pt-12">
-      <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8">
+    <footer className="bg-gray-950 text-gray-300">
+      <div className="max-w-7xl mx-auto px-6 py-10">
 
-        {/* Logo + Nome */}
-        <div className="flex items-center space-x-4">
-          <img src="/img/logo.png" alt="Logo Service Electric" className="w-16 h-16" />
-          <span className="text-2xl font-bold text-yellow-400">RS Service Electric</span>
+        {/* Logo */}
+        <div className="flex flex-col items-center text-center">
+          <img
+            src="/img/logo.png"
+            alt="RS Service Electric"
+            className="w-16 h-16 mb-4"
+          />
+
+          <h3 className="text-2xl font-bold text-yellow-400">
+            RS Service Electric
+          </h3>
+
+          <p className="mt-3 max-w-xl text-gray-400">
+            Instalações elétricas, manutenção preventiva,
+            quadros elétricos, iluminação e soluções para
+            residências, comércios e indústrias.
+          </p>
         </div>
 
         {/* Contato */}
-        <div className="space-y-2">
-          <h3 className="text-lg font-semibold text-yellow-400">Contato</h3>
-          <p>Telefone: +55 51 98416-2970</p>
-          <p>
-            WhatsApp:{" "}
-            <a
-              href="https://wa.me/555184162970"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-yellow-400 hover:text-yellow-300"
-            >
-              Clique aqui
-            </a>
-          </p>
-          <p>Email: contato@rsserviceelectric.com.br</p>
+        <div className="flex flex-col md:flex-row justify-center items-center gap-4 mt-8 text-center">
+          <a
+            href="tel:+5551984162970"
+            className="hover:text-yellow-400 transition"
+          >
+            📞 (51) 98416-2970
+          </a>
+
+          <span className="hidden md:block text-gray-600">•</span>
+
+          <a
+            href="https://wa.me/555184162970"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-yellow-400 transition"
+          >
+            WhatsApp
+          </a>
+
+          <span className="hidden md:block text-gray-600">•</span>
+
+          <span>
+            Guaíba - RS
+          </span>
         </div>
 
-        {/* Endereço + Mapa */}
-        <div className="space-y-2">
-          <h3 className="text-lg font-semibold text-yellow-400">Endereço</h3>
-          <p>Rua José Stortti 521 Centro Guaíba - RS</p>
-          <div className="mt-2">
-            <iframe
-              title="Mapa RS Service Electric"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d862.8340085676!2d-51.32651647155703!3d-30.11319653831995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95197ff54a7fc257%3A0xdb363c50f61cc6b6!2sTrav.%20Jose%20Stortti%20-%20Centro%2C%20Gua%C3%ADba%20-%20RS%2C%2092500-000!5e0!3m2!1spt-BR!2sbr!4v1759233950024!5m2!1spt-BR!2sbr"
-              className="w-full h-40 rounded-lg"
-              allowFullScreen
-              loading="lazy"
-            ></iframe>
-          </div>
+        {/* Redes */}
+        <div className="flex justify-center gap-6 mt-8">
+          <a
+            href="https://www.instagram.com/rs_servicelectric?igsh=OTlrbHZuMDJuYzM1"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-yellow-400 hover:scale-110 transition"
+          >
+            <Instagram size={26} />
+          </a>
+
+          <a
+            href="https://www.facebook.com/share/1BsM9FuzWB/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-yellow-400 hover:scale-110 transition"
+          >
+            <Facebook size={26} />
+          </a>
         </div>
-      </div>
 
-      {/* Redes sociais */}
-      <div className="mt-8 border-t border-gray-700 pt-6 flex justify-center space-x-6">
-        <a
-          href="https://www.instagram.com/rs_servicelectric?igsh=OTlrbHZuMDJuYzM1"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-yellow-400 hover:text-yellow-300 transition"
-        >
-          <Instagram size={28} />
-        </a>
-        <a
-          href="https://www.facebook.com/share/1BsM9FuzWB/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-yellow-400 hover:text-yellow-300 transition"
-        >
-          <Facebook size={28} />
-        </a>
-        <a
-          href="https://wa.me/555184162970"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-yellow-400 hover:text-yellow-300 transition"
-        >
-          <Zap size={28} />
-        </a>
-      </div>
+        {/* Voltar ao topo */}
+        <div className="flex justify-center mt-8">
+          <a
+            href="#top"
+            className="inline-flex items-center gap-2 bg-yellow-400 text-gray-900 px-5 py-3 rounded-full font-semibold hover:bg-yellow-300 transition"
+          >
+            <ArrowUp size={18} />
+            Voltar ao topo
+          </a>
+        </div>
 
-      {/* Copyright */}
-      <div className="mt-6 text-center text-gray-400 text-sm pb-6">
-        © {new Date().getFullYear()} RS Service Electric. Todos os direitos reservados.
-      </div>
-      <div className="w-full bg-gray-900 text-gray-200 text-center py-2 text-sm hover:bg-blue-950 transition-colors">
-        <a href="https://codificaweb.pages.dev/" target="_blank" rel="noopener noreferrer">
-          Desenvolvido pela CodificaWeb
-        </a>
-      </div>
+        {/* Copyright */}
+        <div className="border-t border-gray-800 mt-10 pt-6 text-center text-sm text-gray-500">
+          © {new Date().getFullYear()} RS Service Electric. Todos os direitos reservados.
+        </div>
 
+        {/* Desenvolvedor */}
+        <div className="text-center mt-3 pb-2">
+          <a
+            href="https://codificaweb.pages.dev/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-500 hover:text-yellow-400 transition text-sm"
+          >
+            Desenvolvido por CodificaWeb
+          </a>
+        </div>
+
+      </div>
     </footer>
   );
 }

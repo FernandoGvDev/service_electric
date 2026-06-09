@@ -1,135 +1,63 @@
 // src/components/Header.tsx
-import { useState } from "react";
-import { Menu, X, Instagram, Facebook, Phone } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 export default function Header() {
-  const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
-  const navLinks = [
-    { name: "Início", href: "#inicio" },
-    { name: "Sobre", href: "#sobre" },
-    { name: "Serviços", href: "#services" },
-    { name: "Contato", href: "#contact" },
-  ];
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 80);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-gray-900 text-white shadow-lg">
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-3">
-        {/* Logo + Nome */}
-        <div className="flex items-center space-x-3">
+    <motion.header
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.5 }}
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-gray-950/95 backdrop-blur-md shadow-xl py-2"
+          : "bg-transparent py-6"
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-6 flex justify-center items-center">
+        <a
+          href="#inicio"
+          className="flex flex-col items-center text-center"
+          aria-label="RS Service Electric"
+        >
           <img
             src="/img/logo.png"
-            alt="Service Electric Logo"
-            className="w-12 h-12 object-contain"
+            alt="RS Service Electric - Eletricista Residencial e Industrial"
+            className={`object-contain transition-all duration-300 ${
+              scrolled ? "w-14 h-14" : "w-24 h-24"
+            }`}
           />
-          <span className="text-2xl font-bold text-yellow-400 tracking-wide">
-            RS Service Electric
+
+          <span
+            className={`font-bold text-white transition-all duration-300 ${
+              scrolled
+                ? "text-lg tracking-wide"
+                : "text-3xl md:text-4xl tracking-wider"
+            }`}
+          >
+            RS SERVICE ELECTRIC
           </span>
-        </div>
 
-        {/* Links desktop */}
-        <nav className="hidden md:flex space-x-8">
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className="relative group text-lg font-medium"
-            >
-              {link.name}
-              <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-yellow-400 transition-all duration-300 group-hover:w-full"></span>
-            </a>
-          ))}
-        </nav>
-
-        {/* Ícones redes sociais */}
-        <div className="hidden md:flex space-x-4">
-          <a
-            href="https://wa.me/555184162970"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-2 rounded-full bg-yellow-400 text-gray-900 hover:bg-yellow-300 transition"
-          >
-            <Phone size={20} />
-          </a>
-          <a
-            href="https://www.instagram.com/rs_servicelectric?igsh=OTlrbHZuMDJuYzM1"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-2 rounded-full bg-yellow-400 text-gray-900 hover:bg-yellow-300 transition"
-          >
-            <Instagram size={20} />
-          </a>
-          <a
-            href="https://www.facebook.com/share/1BsM9FuzWB/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-2 rounded-full bg-yellow-400 text-gray-900 hover:bg-yellow-300 transition"
-          >
-            <Facebook size={20} />
-          </a>
-        </div>
-
-        {/* Botão menu mobile */}
-        <button
-          className="md:hidden text-yellow-400"
-          onClick={() => setOpen(!open)}
-        >
-          {open ? <X size={32} /> : <Menu size={32} />}
-        </button>
+          {!scrolled && (
+            <span className="text-yellow-400 text-sm md:text-base font-medium mt-1">
+              Eletricista Residencial e Industrial
+            </span>
+          )}
+        </a>
       </div>
-
-      {/* Menu Mobile */}
-      <AnimatePresence>
-        {open && (
-          <motion.nav
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3 }}
-            className="md:hidden bg-gray-800 px-6 py-4 space-y-4"
-          >
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="block text-lg font-medium text-yellow-400 hover:text-white transition"
-                onClick={() => setOpen(false)}
-              >
-                {link.name}
-              </a>
-            ))}
-
-            {/* Ícones sociais no mobile */}
-            <div className="flex space-x-4 pt-3">
-              <a
-                href="https://wa.me/555184162970"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 rounded-full bg-yellow-400 text-gray-900 hover:bg-yellow-300 transition"
-              >
-                <Phone size={20} />
-              </a>
-              <a
-                href="https://www.instagram.com/rs_servicelectric?igsh=OTlrbHZuMDJuYzM1"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 rounded-full bg-yellow-400 text-gray-900 hover:bg-yellow-300 transition"
-              >
-                <Instagram size={20} />
-              </a>
-              <a
-                href="https://www.facebook.com/share/1BsM9FuzWB/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 rounded-full bg-yellow-400 text-gray-900 hover:bg-yellow-300 transition"
-              >
-                <Facebook size={20} />
-              </a>
-            </div>
-          </motion.nav>
-        )}
-      </AnimatePresence>
-    </header>
+    </motion.header>
   );
 }

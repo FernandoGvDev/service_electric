@@ -5,20 +5,44 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const faqs = [
   {
-    pergunta: "Atendem em finais de semana?",
-    resposta: "Sim! A RS Service Electric oferece atendimento emergencial aos finais de semana.",
+    pergunta: "Quais serviços elétricos a RS Service Electric realiza?",
+    resposta:
+      "Realizamos instalações elétricas, manutenção preventiva e corretiva, troca de disjuntores, instalação de tomadas, iluminação, montagem de quadros elétricos e serviços elétricos residenciais, comerciais e industriais.",
+  },
+  {
+    pergunta: "Vocês atendem residências, empresas e indústrias?",
+    resposta:
+      "Sim. A RS Service Electric atende clientes residenciais, comerciais e industriais, oferecendo soluções elétricas adequadas para cada necessidade.",
+  },
+  {
+    pergunta: "Quanto tempo leva para receber um orçamento?",
+    resposta:
+      "Na maioria dos casos, o orçamento é enviado rapidamente após a avaliação das necessidades do serviço.",
+  },
+  {
+    pergunta: "Vocês realizam troca de disjuntores e quadros elétricos?",
+    resposta:
+      "Sim. Fazemos substituição de disjuntores, manutenção e montagem de quadros elétricos, sempre priorizando segurança e funcionamento adequado da instalação.",
+  },
+  {
+    pergunta: "Quando devo contratar uma manutenção elétrica preventiva?",
+    resposta:
+      "A manutenção preventiva é recomendada periodicamente para identificar desgastes, evitar curtos-circuitos, reduzir riscos e aumentar a segurança da instalação elétrica.",
   },
   {
     pergunta: "Vocês emitem nota fiscal?",
-    resposta: "Sim, todos os serviços realizados contam com nota fiscal para sua segurança.",
+    resposta:
+      "Sim. Os serviços podem ser realizados com emissão de nota fiscal, oferecendo mais segurança e transparência para o cliente.",
   },
   {
-    pergunta: "Qual o prazo para orçamento?",
-    resposta: "Normalmente enviamos orçamento em até 24 horas após avaliação do serviço.",
+    pergunta: "Como solicitar um orçamento com a RS Service Electric?",
+    resposta:
+      "Basta entrar em contato pelo WhatsApp. Nossa equipe irá entender sua necessidade e orientar sobre os próximos passos.",
   },
   {
-    pergunta: "Oferecem manutenção preventiva?",
-    resposta: "Sim, realizamos inspeções regulares para evitar falhas elétricas futuras.",
+    pergunta: "Vocês atendem emergências elétricas?",
+    resposta:
+      "Sim. Entre em contato pelo WhatsApp para verificar a disponibilidade de atendimento conforme sua localização e necessidade.",
   },
 ];
 
